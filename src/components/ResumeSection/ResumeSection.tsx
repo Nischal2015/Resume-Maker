@@ -31,18 +31,20 @@ const ResumeSection = ({
         {isOpen && (
           <motion.div
             key={id}
-            initial="close"
-            animate="open"
-            exit="close"
+            initial='close'
+            animate='open'
+            exit='close'
             variants={{
-              open: { opacity: 1, height: "auto" },
+              open: { opacity: 1, height: "auto", scale: 1 },
               close: {
                 opacity: 0,
                 height: 0,
-                transition: {
-                  delay: 0.1,
-                },
+                scale: 0.8,
               },
+            }}
+            transition={{
+              delay: 0.05,
+              duration: 0.6,
             }}
           >
             {child}

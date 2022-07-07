@@ -7,9 +7,13 @@
 }
 
 .photos {
-  @apply rounded-sm basis-40 shrink-0 grow-0 bg-gray-100;
+  @apply rounded-sm basis-40 h-40 shrink-0 grow-0 bg-gray-100;
 }
 
 .info {
-  @apply grid grid-cols-2 gap-6;
+  @apply flex flex-wrap gap-6;
+}
+
+.info > * {
+  @apply grow;
 }
