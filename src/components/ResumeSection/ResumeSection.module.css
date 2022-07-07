@@ -1,0 +1,15 @@
+.accordion {
+  @apply hover:cursor-pointer transition-all;
+}
+
+.accordion:hover .accordion-text {
+  @apply text-gray-700 transition-all;
+}
+
+.accordion-header {
+  @apply flex justify-between items-center py-4 border-b border-gray-300;
+}
+
+.accordion-text {
+  @apply text-gray-500 text-xl font-medium;
+}

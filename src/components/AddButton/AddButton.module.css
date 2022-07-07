@@ -1,0 +1,7 @@
+.button {
+  @apply border border-gray-400 rounded p-1 transition-all hover:border-gray-700;
+}
+
+.buttonText {
+  @apply flex items-center gap-x-2 text-gray-700 text-base;
+}
