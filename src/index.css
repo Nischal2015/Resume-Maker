@@ -1,10 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --black: #495057;
+}
+
 @layer base {
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
   html {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
   }
 }
+
+.gutter {
+  @apply bg-gray-100 hover:bg-gray-200 transition-all bg-no-repeat relative after:absolute after:h-16 after:w-2 after:bg-gray-300 after:rounded-full after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:transition-all after:hover:bg-gray-500 after:hover:scale-105;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url("grips/vertical.png");
+  cursor: col-resize;
+}
+
+.gutter.gutter-vertical {
+  background-image: url("grips/horizontal.png");
+  cursor: row-resize;
+}
+
+/* ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */

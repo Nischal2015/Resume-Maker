@@ -1,0 +1,7 @@
+.textfield {
+  @apply flex flex-col gap-y-1;
+}
+
+.input {
+  @apply p-1 rounded hover:outline-1 w-full;
+}

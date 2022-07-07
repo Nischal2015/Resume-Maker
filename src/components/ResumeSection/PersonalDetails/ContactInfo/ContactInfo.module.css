@@ -1,0 +1,11 @@
+.contact-info {
+  @apply flex flex-col gap-y-4;
+}
+
+.contact-info-content {
+  @apply flex flex-col gap-6;
+}
+
+.section-2by1 {
+  @apply grid grid-cols-2 gap-6;
+}

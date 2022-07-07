@@ -1,0 +1,11 @@
+.split {
+  @apply flex h-screen;
+}
+
+.filler-section {
+  @apply px-12 py-2 overflow-auto;
+}
+
+.pdf-section {
+  @apply p-8;
+}

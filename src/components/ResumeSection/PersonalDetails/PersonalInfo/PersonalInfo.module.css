@@ -1,0 +1,15 @@
+.personal-info {
+  @apply flex flex-col gap-y-4;
+}
+
+.personal-info-content {
+  @apply flex justify-between gap-x-12;
+}
+
+.photos {
+  @apply rounded-sm basis-40 shrink-0 grow-0 bg-gray-100;
+}
+
+.info {
+  @apply grid grid-cols-2 gap-6;
+}
