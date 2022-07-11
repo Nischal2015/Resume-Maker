@@ -1,0 +1,8 @@
+.employment {
+  @apply flex flex-col gap-y-6 pt-6 pb-10;
+}
+
+.employment-start,
+.employment-end {
+  @apply flex justify-between items-end gap-x-6;
+}

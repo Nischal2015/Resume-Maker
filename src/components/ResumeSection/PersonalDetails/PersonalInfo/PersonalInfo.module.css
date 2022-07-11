@@ -3,7 +3,7 @@
 }
 
 .personal-info-content {
-  @apply flex justify-between gap-x-12;
+  @apply flex gap-x-12;
 }
 
 .photos {
@@ -11,7 +11,7 @@
 }
 
 .info {
-  @apply flex flex-wrap gap-6;
+  @apply flex flex-col gap-6 grow;
 }
 
 .info > * {

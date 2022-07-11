@@ -1,0 +1,15 @@
+.selectfield {
+  @apply flex flex-col gap-y-1 w-full;
+}
+
+.label {
+  @apply text-sm text-gray-700;
+}
+
+.select {
+  @apply p-2 rounded hover:outline-1 w-full text-sm cursor-pointer;
+}
+
+.default {
+  @apply text-gray-500;
+}

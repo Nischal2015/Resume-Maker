@@ -1,0 +1,11 @@
+.percentbar {
+  @apply flex flex-col gap-y-1;
+}
+
+.percentbar span {
+  @apply text-xs-1 text-gray-600;
+}
+
+.container {
+  @apply w-full h-2 bg-gray-200;
+}

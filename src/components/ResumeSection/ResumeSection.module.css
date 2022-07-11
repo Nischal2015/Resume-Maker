@@ -3,13 +3,13 @@
 }
 
 .accordion:hover .accordion-text {
-  @apply text-gray-700 transition-all;
+  @apply text-gray-700;
 }
 
 .accordion-header {
-  @apply flex justify-between items-center py-4 border-b border-gray-300;
+  @apply flex justify-between items-center py-6 border-b border-gray-300;
 }
 
 .accordion-text {
-  @apply text-gray-500 text-xl font-medium;
+  @apply text-gray-400 text-xl font-medium;
 }

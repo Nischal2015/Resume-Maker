@@ -6,6 +6,9 @@
 
 :root {
   --black: #495057;
+  --text-name: "8.46mm"; /* 24pt ~ 32px */
+  --text-heading: "4.9mm"; /* 14pt ~ 18.667px */
+  --text-body: "3.52mm"; /* 10pt ~ 13.33px */
 }
 
 @layer base {
@@ -26,6 +29,28 @@
   }
 }
 
+@layer utilities {
+  .aspect-a4 {
+    aspect-ratio: 21 / 29.7;
+    --webkit-aspect-ratio: 21 / 29.7;
+    -moz-aspect-ratio: 21 / 29.7;
+  }
+
+  .text-xs-1 {
+    font-size: 0.6rem;
+    line-height: 0.75rem;
+  }
+
+  .text-xs-2 {
+    font-size: 0.4rem;
+    line-height: 0.6rem;
+  }
+
+  .leading-2 {
+    line-height: 0.6rem;
+  }
+}
+
 .gutter {
   @apply bg-gray-100 hover:bg-gray-200 transition-all bg-no-repeat relative after:absolute after:h-16 after:w-2 after:bg-gray-300 after:rounded-full after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:transition-all after:hover:bg-gray-500 after:hover:scale-105;
 }
@@ -38,6 +63,30 @@
 .gutter.gutter-vertical {
   background-image: url("grips/horizontal.png");
   cursor: row-resize;
+}
+
+.icon {
+  height: 12px;
+  width: 12px;
+}
+
+.richtext ul,
+.richtext ol {
+  list-style: inside;
+  margin-top: 1mm;
+}
+
+.richtext ol {
+  list-style-type: decimal;
+}
+
+.richtext-li {
+  margin-left: 2mm;
+  margin-bottom: 0.5mm;
+}
+
+.richtext-p {
+  margin-bottom: 2mm;
 }
 
 /* ::-webkit-scrollbar {

@@ -1,0 +1,8 @@
+.education {
+  @apply flex flex-col gap-y-6 pt-6 pb-10;
+}
+
+.education-start,
+.education-end {
+  @apply flex justify-between items-end gap-x-6;
+}
