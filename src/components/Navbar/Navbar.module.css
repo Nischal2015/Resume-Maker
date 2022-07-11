@@ -1,0 +1,7 @@
+.navbar {
+  @apply h-14 bg-blue-900 flex items-center justify-between px-3;
+}
+
+.nav-text {
+  @apply text-white;
+}

@@ -1,0 +1,31 @@
+.header {
+  @apply flex flex-col gap-y-2 bg-gray-800 p-4 text-white;
+}
+
+.fullname > span {
+  @apply text-xs-1 text-gray-100;
+}
+
+.contact {
+  @apply flex items-center gap-x-4 text-gray-100 text-xs-2;
+}
+
+.contact-item {
+  @apply flex items-center gap-x-1;
+}
+
+.resume {
+  @apply p-4 h-full grid grid-cols-3;
+}
+
+.left {
+  @apply col-span-2 pr-4 h-full border-r border-gray-300 border-opacity-50 flex flex-col;
+}
+
+.education-heading {
+  @apply flex items-center justify-between;
+}
+
+.education-heading > h3 {
+  @apply font-semibold;
+}
