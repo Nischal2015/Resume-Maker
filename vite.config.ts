@@ -9,6 +9,7 @@ export default defineConfig((configEnv) => {
     define: {
       global: "window",
     },
+    plugins: [react()],
     resolve: {
       alias: {
         app: resolve(__dirname, "src", "app"),
@@ -21,6 +22,14 @@ export default defineConfig((configEnv) => {
         generateScopedName: isDevelopment
           ? "[name]__[local]__[hash:base64:5]"
           : "[hash:base64:5]",
+      },
+    },
+    server: {
+      host: "0.0.0.0",
+      port: 3000,
+      strictPort: true,
+      hmr: {
+        clientPort: 3000,
       },
     },
   };
