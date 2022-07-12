@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  dev:
+    container_name: resume_dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    command: sh -c "npm rebuild esbuild && npm start"
+
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    volumes:
+      - resume:/usr/share/nginx/html
+    ports:
+      - 3001:80
+
+volumes:
+  resume:
