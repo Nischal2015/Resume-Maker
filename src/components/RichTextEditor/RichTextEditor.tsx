@@ -53,6 +53,7 @@ export default function RichTextEditor({
         }}
       />
       <button onClick={log}>CLick me</button>
+      <p>This is test</p>
     </>
   );
 }
