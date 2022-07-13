@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import shimReactPdf from "vite-plugin-shim-react-pdf";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig((configEnv) => {
@@ -10,7 +9,6 @@ export default defineConfig((configEnv) => {
     define: {
       global: "window",
     },
-    plugins: [react(), shimReactPdf()],
     resolve: {
       alias: {
         app: resolve(__dirname, "src", "app"),
