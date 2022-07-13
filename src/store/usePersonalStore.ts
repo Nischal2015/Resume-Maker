@@ -1,5 +1,4 @@
 import create from "zustand";
-import { mountStoreDevtool } from "simple-zustand-devtools";
 
 export interface UsePersonalStoreProps {
   fullname: string;
@@ -29,9 +28,5 @@ const useStore = create<UsePersonalFunctionProps>((set) => ({
   setStore: (newState: Partial<UsePersonalStoreProps>) =>
     set((state) => ({ ...state, ...newState })),
 }));
-
-if (import.meta.env.DEV) {
-  mountStoreDevtool("Store", useStore);
-}
 
 export default useStore;
