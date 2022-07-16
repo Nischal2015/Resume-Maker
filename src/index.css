@@ -49,6 +49,10 @@
   .leading-2 {
     line-height: 0.6rem;
   }
+
+  .scale-102 {
+    transform: scale(1.02);
+  }
 }
 
 .gutter {

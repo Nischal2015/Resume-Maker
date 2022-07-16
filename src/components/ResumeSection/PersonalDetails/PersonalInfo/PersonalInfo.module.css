@@ -7,7 +7,19 @@
 }
 
 .photos {
-  @apply rounded-sm basis-40 h-40 shrink-0 grow-0 bg-gray-100;
+  @apply relative rounded-sm basis-40 h-40 shrink-0 grow-0 bg-gray-200 flex items-center justify-center hover:bg-gray-200/75 hover:cursor-pointer overflow-hidden;
+}
+
+.photos img {
+  @apply w-full h-full object-cover z-10 transition-all;
+}
+
+.photos:hover img {
+  @apply transform scale-102;
+}
+
+.hoverText {
+  @apply absolute inset-0 z-20 opacity-0 h-full w-full bg-gray-600/60 hover:opacity-100 duration-200 ease-in flex justify-center items-center font-bold text-xl text-gray-200;
 }
 
 .info {
@@ -16,4 +28,8 @@
 
 .info > * {
   @apply grow;
+}
+
+.fileInputTag {
+  @apply hidden;
 }
