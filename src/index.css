@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,9 +6,9 @@
 
 :root {
   --black: #495057;
-  --text-name: "8.46mm"; /* 24pt ~ 32px */
-  --text-heading: "4.9mm"; /* 14pt ~ 18.667px */
-  --text-body: "3.52mm"; /* 10pt ~ 13.33px */
+  --text-name: '8.46mm'; /* 24pt ~ 32px */
+  --text-heading: '4.9mm'; /* 14pt ~ 18.667px */
+  --text-body: '3.52mm'; /* 10pt ~ 13.33px */
 }
 
 @layer base {
@@ -25,7 +25,7 @@
   }
 
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
@@ -49,6 +49,10 @@
   .leading-2 {
     line-height: 0.6rem;
   }
+
+  .scale-102 {
+    transform: scale(1.02);
+  }
 }
 
 .gutter {
@@ -56,12 +60,12 @@
 }
 
 .gutter.gutter-horizontal {
-  background-image: url("grips/vertical.png");
+  background-image: url('grips/vertical.png');
   cursor: col-resize;
 }
 
 .gutter.gutter-vertical {
-  background-image: url("grips/horizontal.png");
+  background-image: url('grips/horizontal.png');
   cursor: row-resize;
 }
 
