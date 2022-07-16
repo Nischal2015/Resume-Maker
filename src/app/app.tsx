@@ -1,15 +1,15 @@
-import { RESUME_SECTIONS } from "../data/section";
-import { Navbar, ResumeSection } from "../components";
-import { v4 as uuid } from "uuid";
-import styles from "./app.module.css";
-import { PdfPage } from "./PdfPage";
+import { v4 as uuid } from 'uuid';
+import { RESUME_SECTIONS } from '../data/section';
+import { Navbar, ResumeSection } from '../components';
+import styles from './app.module.css';
+import { PdfPage } from './PdfPage';
 
-const App = (): JSX.Element => {
+function App(): JSX.Element {
   return (
     <>
       <Navbar />
       <main className={styles.split}>
-        <section className={styles["filler-section"]}>
+        <section className={styles['filler-section']}>
           {RESUME_SECTIONS.map((section) => {
             const id = uuid();
             return (
@@ -26,6 +26,6 @@ const App = (): JSX.Element => {
       </main>
     </>
   );
-};
+}
 
 export default App;

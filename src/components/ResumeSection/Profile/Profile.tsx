@@ -1,7 +1,7 @@
-import { usePersonalStore } from "../../../store";
-import RichTextEditor from "../../RichTextEditor";
+import { usePersonalStore } from '../../../store';
+import RichTextEditor from '../../RichTextEditor';
 
-const Profile = () => {
+function Profile() {
   const [updatePersonal, profile] = usePersonalStore((state) => [
     state.setStore,
     state.profile,
@@ -9,6 +9,6 @@ const Profile = () => {
   return (
     <RichTextEditor storeFunc={updatePersonal} name="profile" value={profile} />
   );
-};
+}
 
 export default Profile;

@@ -1,7 +1,7 @@
-import { PlusIcon, ChevronDownIcon } from "@heroicons/react/solid";
-import styles from "./AddButton.module.css";
+import { PlusIcon, ChevronDownIcon } from '@heroicons/react/solid';
+import styles from './AddButton.module.css';
 
-const AddButton = ({
+function AddButton({
   text,
   onClick,
   state,
@@ -9,9 +9,9 @@ const AddButton = ({
   text?: string;
   onClick?: () => void;
   state: boolean;
-}): JSX.Element => {
+}): JSX.Element {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button className={styles.button} onClick={onClick} type="button">
       <div className={styles.buttonText}>
         {state ? (
           <ChevronDownIcon height={24} width={24} />
@@ -22,6 +22,6 @@ const AddButton = ({
       </div>
     </button>
   );
-};
+}
 
 export default AddButton;

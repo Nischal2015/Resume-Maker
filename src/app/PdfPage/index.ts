@@ -1,2 +1,2 @@
-export { default as PdfPage } from "./PdfPage";
-export * from "./PdfPage";
+export { default as PdfPage } from './PdfPage';
+export * from './PdfPage';

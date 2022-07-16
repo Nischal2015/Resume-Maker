@@ -1,10 +1,10 @@
-import styles from "./PersonalDetails.module.css";
-import PersonalInfo from "./PersonalInfo";
-import ContactInfo from "./ContactInfo";
+import PersonalInfo from './PersonalInfo';
+import ContactInfo from './ContactInfo';
+import styles from './PersonalDetails.module.css';
 
-const PersonalDetails = (): JSX.Element => {
+function PersonalDetails(): JSX.Element {
   return (
-    <div className={styles["personal-details"]}>
+    <div className={styles['personal-details']}>
       {/* Personal Information */}
       <PersonalInfo />
 
@@ -12,6 +12,6 @@ const PersonalDetails = (): JSX.Element => {
       <ContactInfo />
     </div>
   );
-};
+}
 
 export default PersonalDetails;

@@ -1,12 +1,12 @@
-import { ModernTemplate } from "app/templates";
-import { useEffect, useRef, useState } from "react";
-import shallow from "zustand/shallow";
+import { ModernTemplate } from 'app/templates';
+import { useEffect, useRef, useState } from 'react';
+import shallow from 'zustand/shallow';
 import {
   usePersonalStore,
   UsePersonalStoreProps,
   useEducationStore,
-} from "../../store";
-import styles from "./PdfPage.module.css";
+} from '../../store';
+import styles from './PdfPage.module.css';
 
 // Resume interface
 export interface ResumeProps {
@@ -15,7 +15,7 @@ export interface ResumeProps {
   email: string;
 }
 
-const PdfPage = () => {
+function PdfPage() {
   const resumeDimensionRef = useRef<HTMLDivElement>();
 
   const [width, setWidth] = useState<number>(0);
@@ -31,11 +31,11 @@ const PdfPage = () => {
 
   // Update 'width' when the window resizes
   useEffect(() => {
-    window.addEventListener("resize", getListSize);
+    window.addEventListener('resize', getListSize);
 
     // cleanup the eventListener
     return () => {
-      window.removeEventListener("keydown", getListSize);
+      window.removeEventListener('keydown', getListSize);
     };
   }, []);
 
@@ -50,19 +50,21 @@ const PdfPage = () => {
       postal: state.postal,
       profile: state.profile,
     }),
-    shallow
+    shallow,
   );
   const education = useEducationStore((state) => state.education, shallow);
+
   return (
-    <section className={styles["preview-section"]}>
+    <section className={styles['preview-section']}>
       <div
         className={styles.page}
         ref={resumeDimensionRef as React.RefObject<HTMLDivElement>}
       >
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <ModernTemplate {...personal} education={education} width={width} />
       </div>
     </section>
   );
-};
+}
 
 export default PdfPage;
