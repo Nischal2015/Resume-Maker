@@ -1,4 +1,4 @@
-import create from "zustand";
+import create from 'zustand';
 
 export interface UsePersonalStoreProps {
   fullname: string;
@@ -16,16 +16,17 @@ export interface UsePersonalFunctionProps extends UsePersonalStoreProps {
 }
 
 const useStore = create<UsePersonalFunctionProps>((set) => ({
-  fullname: "",
-  headline: "",
-  email: "",
-  phone: "",
-  address: "",
-  city: "",
-  postal: "",
-  profile: "",
+  fullname: '',
+  headline: '',
+  email: '',
+  phone: '',
+  address: '',
+  city: '',
+  postal: '',
+  profile: '',
 
   setStore: (newState: Partial<UsePersonalStoreProps>) =>
+    // eslint-disable-next-line implicit-arrow-linebreak
     set((state) => ({ ...state, ...newState })),
 }));
 

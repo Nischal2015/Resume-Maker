@@ -2,20 +2,20 @@ import {
   MailIcon,
   PhoneIcon,
   LocationMarkerIcon,
-} from "@heroicons/react/solid";
-import { UsePersonalStoreProps, UseEducationStoreProps } from "../../../store";
-import styles from "./ModernTemplate.module.css";
-import { BODY_FONT, HEADING_FONT, NAME_FONT } from "../../../data/font";
-import { StartToEnd } from "../../../components";
-import { dompurify, sizeCalcForPdf } from "../../../utils";
+} from '@heroicons/react/solid';
+import { UsePersonalStoreProps, UseEducationStoreProps } from '../../../store';
+import styles from './ModernTemplate.module.css';
+import { BODY_FONT, HEADING_FONT, NAME_FONT } from '../../../data/font';
+import { StartToEnd } from '../../../components';
+import { dompurify, sizeCalcForPdf } from '../../../utils';
 
 interface ModernTemplateProps
   extends UsePersonalStoreProps,
-    UseEducationStoreProps {
+  UseEducationStoreProps {
   width: number;
 }
 
-const ModernTemplate = (props: ModernTemplateProps) => {
+function ModernTemplate(props: ModernTemplateProps) {
   const {
     fullname,
     headline,
@@ -28,30 +28,32 @@ const ModernTemplate = (props: ModernTemplateProps) => {
     education,
   } = props;
 
+  console.log({ width });
+
   const style = {
     name: {
       fontSize: sizeCalcForPdf(width, NAME_FONT),
-      lineHeight: "0.5",
+      lineHeight: '0.5',
     },
     heading: {
       fontSize: sizeCalcForPdf(width, HEADING_FONT),
-      lineHeight: "1",
-      marginBottom: "2.5mm",
-      color: "rgb(107 114 128)",
+      lineHeight: '1',
+      marginBottom: '2.5mm',
+      color: 'rgb(107 114 128)',
     },
     body: {
       fontSize: sizeCalcForPdf(width, BODY_FONT),
-      lineHeight: "1",
-      color: "rgb(31 41 55)",
+      lineHeight: '1',
+      color: 'rgb(31 41 55)',
       marginBottom: sizeCalcForPdf(width, 0.5),
     },
-    nameBody: { fontSize: sizeCalcForPdf(width, BODY_FONT), lineHeight: "1" },
+    nameBody: { fontSize: sizeCalcForPdf(width, BODY_FONT), lineHeight: '1' },
     resumeSection: {
       paddingBottom: sizeCalcForPdf(width, 2.5),
-      borderBottom: "1px solid rgba(209, 213, 219, 0.5)",
+      borderBottom: '1px solid rgba(209, 213, 219, 0.5)',
     },
     left: {
-      rowGap: "3mm",
+      rowGap: '3mm',
     },
   };
 
@@ -60,7 +62,7 @@ const ModernTemplate = (props: ModernTemplateProps) => {
       <section className={styles.header}>
         {/* FullName Section */}
         <div className={styles.fullname}>
-          <h1 style={style.name}>{fullname || "Resume"}</h1>
+          <h1 style={style.name}>{fullname || 'Resume'}</h1>
           <span style={style.heading}>{headline}</span>
         </div>
 
@@ -68,7 +70,7 @@ const ModernTemplate = (props: ModernTemplateProps) => {
         <div className={styles.contact} style={style.nameBody}>
           {/* Email */}
           {email && (
-            <div className={styles["contact-item"]}>
+            <div className={styles['contact-item']}>
               <MailIcon className="icon" />
               <span>{email}</span>
             </div>
@@ -76,7 +78,7 @@ const ModernTemplate = (props: ModernTemplateProps) => {
 
           {/* Phone */}
           {phone && (
-            <div className={styles["contact-item"]}>
+            <div className={styles['contact-item']}>
               <PhoneIcon className="icon" />
               <span>{phone}</span>
             </div>
@@ -84,7 +86,7 @@ const ModernTemplate = (props: ModernTemplateProps) => {
 
           {/* Address */}
           {(address || city) && (
-            <div className={styles["contact-item"]}>
+            <div className={styles['contact-item']}>
               <LocationMarkerIcon className="icon" />
               <span>
                 {address}
@@ -106,21 +108,22 @@ const ModernTemplate = (props: ModernTemplateProps) => {
               <div
                 className="richtext"
                 style={style.body}
+                // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={dompurify(profile)}
               />
             </div>
           )}
 
           {/* Education Section */}
-          {education.length &&
-            education.map((edu) => (
+          {education.length
+            && education.map((edu) => (
               <div
                 className={styles.education}
                 style={style.resumeSection}
                 key={edu.id}
               >
                 <h2 style={style.heading}>Education</h2>
-                <div className={styles["education-heading"]}>
+                <div className={styles['education-heading']}>
                   <h3 style={style.body}>{edu.program}</h3>
                   <StartToEnd
                     startYear={edu.startYear}
@@ -141,6 +144,7 @@ const ModernTemplate = (props: ModernTemplateProps) => {
                 <div
                   className="richtext"
                   style={style.body}
+                  // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={dompurify(edu.description)}
                 />
               </div>
@@ -149,6 +153,6 @@ const ModernTemplate = (props: ModernTemplateProps) => {
       </section>
     </>
   );
-};
+}
 
 export default ModernTemplate;

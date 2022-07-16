@@ -1,6 +1,6 @@
-import create from "zustand";
-import { v4 as uuid } from "uuid";
-import produce from "immer";
+import create from 'zustand';
+import { v4 as uuid } from 'uuid';
+import produce from 'immer';
 
 interface EducationProps {
   id: string;
@@ -29,13 +29,13 @@ const useEducationStore = create<UseEducationFunctionProps>((set, get) => ({
   education: [
     {
       id: educationId,
-      school: "",
-      program: "",
-      startMonth: "",
-      startYear: "",
-      endMonth: "",
-      endYear: "",
-      description: "",
+      school: '',
+      program: '',
+      startMonth: '',
+      startYear: '',
+      endMonth: '',
+      endYear: '',
+      description: '',
     },
   ],
   addEducation: () => {
@@ -45,12 +45,12 @@ const useEducationStore = create<UseEducationFunctionProps>((set, get) => ({
     set(
       produce((draft) => {
         const education = draft.education.find(
-          (e: EducationProps) => e.id === payload.id
+          (e: EducationProps) => e.id === payload.id,
         );
         Object.entries(payload).forEach(([key, value]) => {
           education[key] = value;
         });
-      })
+      }),
     ),
 
   findEducation: (id: string) =>

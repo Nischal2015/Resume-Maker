@@ -1,1 +1,1 @@
-export { default } from "./ModernTemplate";
+export { default } from './ModernTemplate';

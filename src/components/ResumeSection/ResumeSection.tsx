@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import { AddButton } from "..";
-import styles from "./ResumeSection.module.css";
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+import { AddButton } from '..';
+import styles from './ResumeSection.module.css';
 
-const ResumeSection = ({
+function ResumeSection({
   text,
   id,
   child,
@@ -11,7 +11,7 @@ const ResumeSection = ({
   text: string;
   id: string;
   child: JSX.Element | JSX.Element[];
-}) => {
+}) {
   const [isOpen, setOpen] = useState(false);
 
   const openAccordionHandler = () => {
@@ -20,18 +20,20 @@ const ResumeSection = ({
 
   return (
     <div className={styles.accordion}>
-      <div
-        className={styles["accordion-header"]}
+      <button
+        className={styles['accordion-header']}
         onClick={openAccordionHandler}
+        type="button"
+        aria-expanded={isOpen}
       >
         <p
-          className={styles["accordion-text"]}
-          style={{ color: isOpen ? "rgb(55 65 81)" : "" }}
+          className={styles['accordion-text']}
+          style={{ color: isOpen ? 'rgb(55 65 81)' : '' }}
         >
           {text}
         </p>
         <AddButton state={isOpen} />
-      </div>
+      </button>
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
@@ -40,7 +42,7 @@ const ResumeSection = ({
             animate="open"
             exit="close"
             variants={{
-              open: { opacity: 1, height: "auto", scale: 1 },
+              open: { opacity: 1, height: 'auto', scale: 1 },
               close: {
                 opacity: 0,
                 height: 0,
@@ -58,6 +60,6 @@ const ResumeSection = ({
       </AnimatePresence>
     </div>
   );
-};
+}
 
 export default ResumeSection;

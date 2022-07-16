@@ -1,4 +1,4 @@
-import styles from "./StartToEnd.module.css";
+import styles from './StartToEnd.module.css';
 
 interface StartToEndProps {
   startMonth: string;
@@ -8,18 +8,18 @@ interface StartToEndProps {
   style: React.CSSProperties;
 }
 
-const StartToEnd = ({
+function StartToEnd({
   startMonth,
   startYear,
   endMonth,
   endYear,
   style,
-}: StartToEndProps) => {
+}: StartToEndProps) {
   return (
-    <div className={styles["start-to-end"]} style={style}>
+    <div className={styles['start-to-end']} style={style}>
       {startMonth} {startYear} - {endMonth} {endYear}
     </div>
   );
-};
+}
 
 export default StartToEnd;

@@ -1,13 +1,13 @@
-import { useEmploymentStore } from "../../../store";
-import { RichTextEditor, Select, TextField } from "../../";
-import { MONTH, YEAR } from "../../../data/section";
-import styles from "./Employment.module.css";
-import shallow from "zustand/shallow";
+import shallow from 'zustand/shallow';
+import { useEmploymentStore } from '../../../store';
+import { RichTextEditor, Select, TextField } from '../..';
+import { MONTH, YEAR } from '../../../data/section';
+import styles from './Employment.module.css';
 
-const Employment = ({ id }: { id: string }) => {
+function Employment({ id }: { id: string }) {
   const [employment, updateEmployment] = useEmploymentStore(
     (state) => [state.findEmployment(id), state.updateEmployment],
-    shallow
+    shallow,
   );
 
   const sectionType = `employment ${id}`;
@@ -16,45 +16,45 @@ const Employment = ({ id }: { id: string }) => {
     <div className={styles.employment}>
       <TextField
         label="Position"
-        value={employment?.program || ""}
+        value={employment?.program || ''}
         name="program"
         sectionType={sectionType}
       />
       <TextField
         label="Employer"
-        value={employment?.school || ""}
+        value={employment?.school || ''}
         name="school"
         sectionType={sectionType}
       />
-      <div className={styles["employment-start"]}>
+      <div className={styles['employment-start']}>
         <Select
           label="Start Date"
           options={YEAR}
-          value={employment?.startYear || ""}
+          value={employment?.startYear || ''}
           name="startYear"
           defaultValue="Year"
           sectionType={sectionType}
         />
         <Select
           options={MONTH}
-          value={employment?.startMonth || ""}
+          value={employment?.startMonth || ''}
           name="startMonth"
           defaultValue="Month"
           sectionType={sectionType}
         />
       </div>
-      <div className={styles["employment-end"]}>
+      <div className={styles['employment-end']}>
         <Select
           label="End Date (or expected)"
           options={YEAR}
-          value={employment?.endYear || ""}
+          value={employment?.endYear || ''}
           name="endYear"
           defaultValue="Year"
           sectionType={sectionType}
         />
         <Select
           options={MONTH}
-          value={employment?.endMonth || ""}
+          value={employment?.endMonth || ''}
           name="endMonth"
           defaultValue="Month"
           sectionType={sectionType}
@@ -62,13 +62,13 @@ const Employment = ({ id }: { id: string }) => {
       </div>
 
       <RichTextEditor
-        value={employment?.description || ""}
+        value={employment?.description || ''}
         storeFunc={updateEmployment}
         sectionType={sectionType}
         name="description"
       />
     </div>
   );
-};
+}
 
 export default Employment;

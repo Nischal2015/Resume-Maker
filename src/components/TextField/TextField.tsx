@@ -1,7 +1,7 @@
-import { useEducationStore, usePersonalStore } from "../../store";
-import styles from "./TextField.module.css";
+import { useEducationStore, usePersonalStore } from '../../store';
+import styles from './TextField.module.css';
 
-const TextField = ({
+function TextField({
   label,
   value,
   name,
@@ -11,7 +11,7 @@ const TextField = ({
   value: string;
   name?: string;
   sectionType?: string;
-}) => {
+}) {
   const setStore = usePersonalStore((state) => state.setStore);
   const updateEducation = useEducationStore((state) => state.updateEducation);
   return (
@@ -28,7 +28,7 @@ const TextField = ({
         data-type={sectionType}
         onChange={(e) => {
           if (e.target?.dataset?.type) {
-            const [, id] = e.target.dataset.type.split(" ");
+            const [, id] = e.target.dataset.type.split(' ');
             updateEducation({
               id,
               [e.target.name]: e.target.value,
@@ -39,6 +39,6 @@ const TextField = ({
       />
     </div>
   );
-};
+}
 
 export default TextField;

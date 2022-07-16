@@ -1,6 +1,6 @@
-import create from "zustand";
-import { v4 as uuid } from "uuid";
-import produce from "immer";
+import create from 'zustand';
+import { v4 as uuid } from 'uuid';
+import produce from 'immer';
 
 interface EmploymentProps {
   id: string;
@@ -29,13 +29,13 @@ const useEmploymentStore = create<UseEmploymentFunctionProps>((set, get) => ({
   employment: [
     {
       id: employmentId,
-      school: "",
-      program: "",
-      startMonth: "",
-      startYear: "",
-      endMonth: "",
-      endYear: "",
-      description: "",
+      school: '',
+      program: '',
+      startMonth: '',
+      startYear: '',
+      endMonth: '',
+      endYear: '',
+      description: '',
     },
   ],
   addEmployment: () => {
@@ -45,12 +45,12 @@ const useEmploymentStore = create<UseEmploymentFunctionProps>((set, get) => ({
     set(
       produce((draft) => {
         const employment = draft.employment.find(
-          (e: EmploymentProps) => e.id === payload.id
+          (e: EmploymentProps) => e.id === payload.id,
         );
         Object.entries(payload).forEach(([key, value]) => {
           employment[key] = value;
         });
-      })
+      }),
     ),
 
   findEmployment: (id: string) =>

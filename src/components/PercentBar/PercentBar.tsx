@@ -1,13 +1,13 @@
-import styles from "./PercentBar.module.css";
+import styles from './PercentBar.module.css';
 
-const PercentBar = ({ heading, width }: { heading: string; width: string }) => {
+function PercentBar({ heading, width }: { heading: string; width: string }) {
   return (
     <div className={styles.percentbar}>
       <span>{heading}</span>
       <div className={styles.container}>
         <div
           style={{
-            backgroundColor: "rgb(31 41 55)",
+            backgroundColor: 'rgb(31 41 55)',
             width: `${width}%`,
           }}
         >
@@ -16,6 +16,6 @@ const PercentBar = ({ heading, width }: { heading: string; width: string }) => {
       </div>
     </div>
   );
-};
+}
 
 export default PercentBar;
