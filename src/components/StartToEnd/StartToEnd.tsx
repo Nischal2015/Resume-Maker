@@ -17,7 +17,15 @@ function StartToEnd({
 }: StartToEndProps) {
   return (
     <div className={styles['start-to-end']} style={style}>
-      {startMonth} {startYear} - {endMonth} {endYear}
+      {startMonth}
+      {' '}
+      {startYear}
+      {' '}
+      -
+      {' '}
+      {endMonth}
+      {' '}
+      {endYear}
     </div>
   );
 }

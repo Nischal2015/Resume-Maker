@@ -7,14 +7,14 @@ function Select({
   options,
   defaultValue,
   name,
-  // value,
+  value,
   sectionType,
 }: {
   label?: string;
   options: Array<Record<string, string>>;
   defaultValue: string;
   name: string;
-  // value: string;
+  value: string;
   sectionType?: string;
 }) {
   const updateEducation = useEducationStore((state) => state.updateEducation);
@@ -40,7 +40,7 @@ function Select({
         }}
       >
         <option value={defaultValue} className={styles.default}>
-          {defaultValue}
+          {value}
         </option>
         {options.map((option) => {
           const id = uuid();

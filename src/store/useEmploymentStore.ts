@@ -41,20 +41,18 @@ const useEmploymentStore = create<UseEmploymentFunctionProps>((set, get) => ({
   addEmployment: () => {
     //
   },
-  updateEmployment: (payload: Partial<EmploymentProps>) =>
-    set(
-      produce((draft) => {
-        const employment = draft.employment.find(
-          (e: EmploymentProps) => e.id === payload.id,
-        );
-        Object.entries(payload).forEach(([key, value]) => {
-          employment[key] = value;
-        });
-      }),
-    ),
+  updateEmployment: (payload: Partial<EmploymentProps>) => set(
+    produce((draft) => {
+      const employment = draft.employment.find(
+        (e: EmploymentProps) => e.id === payload.id,
+      );
+      Object.entries(payload).forEach(([key, value]) => {
+        employment[key] = value;
+      });
+    }),
+  ),
 
-  findEmployment: (id: string) =>
-    get().employment.find((employment) => employment.id === id),
+  findEmployment: (id: string) => get().employment.find((employment) => employment.id === id),
 }));
 
 export default useEmploymentStore;

@@ -41,20 +41,18 @@ const useEducationStore = create<UseEducationFunctionProps>((set, get) => ({
   addEducation: () => {
     //
   },
-  updateEducation: (payload: Partial<EducationProps>) =>
-    set(
-      produce((draft) => {
-        const education = draft.education.find(
-          (e: EducationProps) => e.id === payload.id,
-        );
-        Object.entries(payload).forEach(([key, value]) => {
-          education[key] = value;
-        });
-      }),
-    ),
+  updateEducation: (payload: Partial<EducationProps>) => set(
+    produce((draft) => {
+      const education = draft.education.find(
+        (e: EducationProps) => e.id === payload.id,
+      );
+      Object.entries(payload).forEach(([key, value]) => {
+        education[key] = value;
+      });
+    }),
+  ),
 
-  findEducation: (id: string) =>
-    get().education.find((education) => education.id === id),
+  findEducation: (id: string) => get().education.find((education) => education.id === id),
 }));
 
 export default useEducationStore;
