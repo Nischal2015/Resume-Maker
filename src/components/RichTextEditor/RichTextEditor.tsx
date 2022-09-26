@@ -29,9 +29,9 @@ export default function RichTextEditor({
         placeholder: 'Enter description...',
         plugins: ['lists'],
         toolbar:
-          'undo redo | formatselect | ' +
-          'bold italic backcolor | bullist numlist outdent indent | ' +
-          'removeformat | help',
+          'undo redo | formatselect | '
+          + 'bold italic backcolor | bullist numlist outdent indent | '
+          + 'removeformat | help',
         content_style:
           'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
         extended_valid_elements: 'li[class=richtext-li],p[class=richtext-p]',

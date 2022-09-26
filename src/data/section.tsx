@@ -1,4 +1,6 @@
-import { Education, Employment, PersonalDetails, Profile } from '../components';
+import {
+  Education, Employment, PersonalDetails, Profile,
+} from '../components';
 import { useEducationStore, useEmploymentStore } from '../store';
 
 interface ResumeSectionProps {
@@ -96,6 +98,10 @@ export const YEAR = [
   { name: '2020' },
   { name: '2021' },
   { name: '2022' },
+  { name: '2023' },
+  { name: '2024' },
+  { name: '2025' },
+  { name: '2026' },
 ];
 
 export const MONTH = [

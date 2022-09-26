@@ -4,10 +4,10 @@ import {
   LocationMarkerIcon,
 } from '@heroicons/react/solid';
 import { UsePersonalStoreProps, UseEducationStoreProps } from '../../../store';
-import styles from './ModernTemplate.module.css';
 import { BODY_FONT, HEADING_FONT, NAME_FONT } from '../../../data/font';
 import { StartToEnd } from '../../../components';
 import { dompurify, sizeCalcForPdf } from '../../../utils';
+import styles from './ModernTemplate.module.css';
 
 interface ModernTemplateProps
   extends UsePersonalStoreProps,
@@ -27,8 +27,6 @@ function ModernTemplate(props: ModernTemplateProps) {
     width,
     education,
   } = props;
-
-  console.log({ width });
 
   const style = {
     name: {
@@ -115,40 +113,49 @@ function ModernTemplate(props: ModernTemplateProps) {
           )}
 
           {/* Education Section */}
-          {education.length
-            && education.map((edu) => (
-              <div
-                className={styles.education}
-                style={style.resumeSection}
-                key={edu.id}
-              >
-                <h2 style={style.heading}>Education</h2>
-                <div className={styles['education-heading']}>
-                  <h3 style={style.body}>{edu.program}</h3>
-                  <StartToEnd
-                    startYear={edu.startYear}
-                    startMonth={edu.startMonth}
-                    endYear={edu.endYear}
-                    endMonth={edu.endMonth}
+          {education.map((edu) => {
+            if (edu.school || edu.program) {
+              return (
+                <div
+                  className={styles.education}
+                  style={style.resumeSection}
+                  key={edu.id}
+                >
+                  <h2 style={style.heading}>Education</h2>
+                  <div className={styles['education-heading']}>
+                    <h3 style={style.body}>{edu.program}</h3>
+                    {(edu.startMonth
+                      || edu.endMonth
+                      || edu.startYear
+                      || edu.endYear) && (
+                      <StartToEnd
+                        startYear={edu.startYear}
+                        startMonth={edu.startMonth}
+                        endYear={edu.endYear}
+                        endMonth={edu.endMonth}
+                        style={style.body}
+                      />
+                    )}
+                  </div>
+                  <p
+                    style={{
+                      ...style.body,
+                      marginBottom: sizeCalcForPdf(width, 1),
+                    }}
+                  >
+                    {edu.school}
+                  </p>
+                  <div
+                    className="richtext"
                     style={style.body}
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={dompurify(edu.description)}
                   />
                 </div>
-                <p
-                  style={{
-                    ...style.body,
-                    marginBottom: sizeCalcForPdf(width, 1),
-                  }}
-                >
-                  {edu.school}
-                </p>
-                <div
-                  className="richtext"
-                  style={style.body}
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={dompurify(edu.description)}
-                />
-              </div>
-            ))}
+              );
+            }
+            return <>&nbsp;</>;
+          })}
         </div>
       </section>
     </>
