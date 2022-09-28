@@ -1,6 +1,4 @@
-import {
-  Education, Employment, PersonalDetails, Profile,
-} from '../components';
+import { Education, Employment, PersonalDetails, Profile } from '../components';
 import { useEducationStore, useEmploymentStore } from '../store';
 
 interface ResumeSectionProps {

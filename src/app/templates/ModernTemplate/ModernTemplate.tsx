@@ -4,14 +4,17 @@ import {
   LocationMarkerIcon,
 } from '@heroicons/react/solid';
 import { UsePersonalStoreProps, UseEducationStoreProps } from '../../../store';
-import { BODY_FONT, HEADING_FONT, NAME_FONT } from '../../../data/font';
 import { StartToEnd } from '../../../components';
-import { dompurify, sizeCalcForPdf } from '../../../utils';
+import {
+  dompurify,
+  sizeCalcForPdf,
+  style as TemplateStyle,
+} from '../../../utils';
 import styles from './ModernTemplate.module.css';
 
 interface ModernTemplateProps
   extends UsePersonalStoreProps,
-  UseEducationStoreProps {
+    UseEducationStoreProps {
   width: number;
 }
 
@@ -28,38 +31,13 @@ function ModernTemplate(props: ModernTemplateProps) {
     education,
   } = props;
 
-  const style = {
-    name: {
-      fontSize: sizeCalcForPdf(width, NAME_FONT),
-      lineHeight: '0.5',
-    },
-    heading: {
-      fontSize: sizeCalcForPdf(width, HEADING_FONT),
-      lineHeight: '1',
-      marginBottom: '2.5mm',
-      color: 'rgb(107 114 128)',
-    },
-    body: {
-      fontSize: sizeCalcForPdf(width, BODY_FONT),
-      lineHeight: '1',
-      color: 'rgb(31 41 55)',
-      marginBottom: sizeCalcForPdf(width, 0.5),
-    },
-    nameBody: { fontSize: sizeCalcForPdf(width, BODY_FONT), lineHeight: '1' },
-    resumeSection: {
-      paddingBottom: sizeCalcForPdf(width, 2.5),
-      borderBottom: '1px solid rgba(209, 213, 219, 0.5)',
-    },
-    left: {
-      rowGap: '3mm',
-    },
-  };
+  const style = TemplateStyle(width);
 
   return (
     <>
       <section className={styles.header}>
         {/* FullName Section */}
-        <div className={styles.fullname}>
+        <div>
           <h1 style={style.name}>{fullname || 'Resume'}</h1>
           <span style={style.heading}>{headline}</span>
         </div>
@@ -124,10 +102,10 @@ function ModernTemplate(props: ModernTemplateProps) {
                   <h2 style={style.heading}>Education</h2>
                   <div className={styles['education-heading']}>
                     <h3 style={style.body}>{edu.program}</h3>
-                    {(edu.startMonth
-                      || edu.endMonth
-                      || edu.startYear
-                      || edu.endYear) && (
+                    {(edu.startMonth ||
+                      edu.endMonth ||
+                      edu.startYear ||
+                      edu.endYear) && (
                       <StartToEnd
                         startYear={edu.startYear}
                         startMonth={edu.startMonth}

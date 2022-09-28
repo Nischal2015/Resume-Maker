@@ -3,6 +3,8 @@ import { resolve } from 'path';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import react from '@vitejs/plugin-react';
 
+import shimReactPdf from 'vite-plugin-shim-react-pdf';
+
 export default defineConfig((configEnv) => {
   const isDevelopment = configEnv.mode === 'development';
 
@@ -10,7 +12,7 @@ export default defineConfig((configEnv) => {
     define: {
       global: 'window',
     },
-    plugins: [react()],
+    plugins: [react(), shimReactPdf()],
     resolve: {
       alias: {
         app: resolve(__dirname, 'src', 'app'),

@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid';
 import { RESUME_SECTIONS } from '../data/section';
 import { Navbar, ResumeSection } from '../components';
-import styles from './app.module.css';
 import { PdfPage } from './PdfPage';
+import styles from './app.module.css';
 
 function App(): JSX.Element {
   return (
