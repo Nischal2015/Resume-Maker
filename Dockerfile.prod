@@ -14,7 +14,7 @@ COPY . .
 RUN yarn build
 
 # 2nd stage
-FROM nginx:1.23.0-alpine
+FROM nginx:1.23.2-alpine
 
 COPY --from=build /app/dist /usr/share/nginx/html
 
